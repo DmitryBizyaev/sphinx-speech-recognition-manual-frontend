@@ -14,9 +14,9 @@ echo $"\npip update"
 sudo pip3 install --upgrade pip -y &> /dev/null
 sudo pip3 --version 2> /dev/null
 
-echo $"\npocketsphinx install"
-sudo pip3 install pocketsphinx &> /dev/null
-sudo pip3 show pocketsphinx 2> /dev/null
+echo $"\nflask install"
+sudo pip3 install Flask &> /dev/null
+sudo pip3 show Flask 2> /dev/null
 
 echo $"\nserver start"
-sudo python3 request_handler.py
+sudo flask run --port=5555
