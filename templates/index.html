@@ -20,11 +20,12 @@
         const inputFile = document.getElementById("file");
         inputForm.addEventListener('submit', uploadFiles);
         
-        function uploadFiles() {
-            const url = '{{url}}'
+        function uploadFiles(event) {
+            event.preventDefault();
+            const url = '{{url}}';
             const fetchOptions = {
                 "method": 'POST',
-                "body": input.files[0]
+                "body": inputFile.files[0]
             }
           
             fetch(url, fetchOptions)
