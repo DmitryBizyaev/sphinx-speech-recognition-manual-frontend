@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<head>
+   <title>Speech recognition</title>
+</head>
+<body>  
+    <h1>CMU Sphinx speech recognition</h1>
+    <h3>Choose a .wav file:</h3>
+
+    <form id = "form" method="post" enctype="multipart/form-data">
+      <input id="file" type="file" name="file">
+      <button type="submit">Upload file</button>
+    </form>
+
+    <p id="output">{{output_text}}</p>
+
+    <script>
+        const inputForm = document.getElementById("form");
+        const outputText = document.getElementById("output");
+        const inputFile = document.getElementById("file");
+        inputForm.addEventListener('submit', uploadFiles);
+        
+        // function handleSubmit(e) {
+        //   console.log("Handling submit...");
+        //   e.preventDefault();
+        //   uploadFiles();
+        // }
+        
+        function uploadFiles() {
+          const url = '{{url}}'
+          const fetchOptions = {
+          "method": 'POST',
+          "body": input.files[0]
+          }
+          
+          fetch(url, fetchOptions)
+          .then(response => response.text())
+          .then((responseData) => {
+            outputText.textContent = responseData
+          });
+        }
+    </script>
+</body>
