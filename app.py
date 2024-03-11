@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
@@ -19,5 +18,7 @@ def main_state():
     output_text = "upload a file first!"
     # r = requests.post(url)
     print("received POST request")
+    audio_file_data = request.form['file']
+    print(audio_file_data)
     return render_template('index.html', output_text=output_text, url=url)
     
