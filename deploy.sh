@@ -18,5 +18,9 @@ echo "flask install"
 sudo pip3 install Flask &> /dev/null
 sudo pip3 show Flask 2> /dev/null
 
+echo "requests install"
+sudo pip3 install requests &> /dev/null
+sudo pip3 show requests 2> /dev/null
+
 echo "server start"
 sudo flask run --host=0.0.0.0 --port=5555

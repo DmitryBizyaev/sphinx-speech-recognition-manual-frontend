@@ -11,6 +11,11 @@
         <button type="submit">Upload file</button>
     </form>
 
+    <form action="/upload_file" method="post" enctype="multipart/form-data">
+        <input type="file" name="fileData">
+        <button type="submit">Upload file</button>
+    </form>
+
     <p id="output">Speech to text transcription: {{output_text}}</p>
 
     <form action="/test" method="post">
