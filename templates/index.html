@@ -6,43 +6,10 @@
     <h1>CMU Sphinx speech recognition</h1>
     <h3>Choose a .wav file:</h3>
 
-    <form id = "form" method="post" enctype="multipart/form-data">
-        <input id="file" type="file" name="file">
-        <button type="submit">Upload file</button>
-    </form>
-
     <form action="/upload_file" method="post" enctype="multipart/form-data">
         <input type="file" name="fileData">
         <button type="submit">Upload file</button>
     </form>
 
     <p id="output">Speech to text transcription: {{output_text}}</p>
-
-    <form action="/test" method="post">
-        <button name="testBtn" type="submit">Test</button>
-    </form>
-
-    <script>
-
-        const inputForm = document.getElementById("form");
-        const outputText = document.getElementById("output");
-        const inputFile = document.getElementById("file");
-        inputForm.addEventListener('submit', uploadFiles);
-        
-        function uploadFiles(event) {
-            event.preventDefault();
-            const url = '{{url}}';
-            const fetchOptions = {
-                "method": 'POST',
-                "body": inputFile.files[0]
-            }
-          
-            fetch(url, fetchOptions)
-            .then(response => response.text())
-            .then((responseData) => {
-                outputText.textContent = "Speech to text transcription: " + responseData
-            });
-        }
-
-    </script>
 </body>

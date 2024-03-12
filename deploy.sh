@@ -22,5 +22,8 @@ echo "requests install"
 sudo pip3 install requests &> /dev/null
 sudo pip3 show requests 2> /dev/null
 
+echo "setting correct api server address"
+sudo sed -i "s/localhost/$1/g" app.py
+
 echo "server start"
 sudo flask run --host=0.0.0.0 --port=5555
